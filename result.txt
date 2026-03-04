@@ -1,3 +1,0 @@
-Node 44
-	left child: 40
-	right child: 50
