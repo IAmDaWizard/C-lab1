@@ -56,7 +56,7 @@ void delete(int value, node **root, int val) {
     while (1) {
         if (value < (*link)->value) {
             if ((*link)->left == NULL) {
-                printf("Нe существует такого узла");
+                printf("Нe существует такого узла\n");
                 break;
             }
             link = &((*link)->left);
@@ -64,7 +64,7 @@ void delete(int value, node **root, int val) {
             continue;
         } else if (value > (*link)->value) {
             if ((*link)->right == NULL) {
-                printf("Нe существует такого узла");
+                printf("Нe существует такого узла\n");
                 break;
             }
             link = &((*link)->right);
@@ -141,6 +141,18 @@ void mdv(node *root, int depth) {
     mdv(root->right, depth + 1);
 }
 
+void print(int value, node *root) {
+    if (root == NULL) return;
+    while (root->value != value) {
+        if (value > root->value && root->right == NULL || value < root->value && root->left == NULL) {printf("Не существует узла с таким значением.\n"); return;}
+        if (value > root->value) root = root->right;
+        else root = root->left;
+    }
+    printf("Node %d\n", value);
+    if (root->left != NULL) printf("\tleft child: %d\n", root->left->value);
+    if (root->right != NULL) printf("\tright child: %d\n", root->right->value);
+}
+
 
 int main(void) {
     char str[10];
@@ -149,7 +161,6 @@ int main(void) {
     node *root = add(val, NULL);
     while (1) {
         if (scanf("%9s", str) != 1) {
-            printf("Ошибка.");
             break;
         } else if (strcmp(str, "add") == 0) {
             scanf("%d", &value);
@@ -169,6 +180,9 @@ int main(void) {
         } else if (strcmp(str, "mdv") == 0) {
             mdv(root, 0);
             printf("%d\n", best_val);
+        } else if (strcmp(str, "print") == 0) {
+            scanf("%d", &value);
+            print(value, root);
         } else if (strcmp(str, "exit") == 0) break;
         else printf("Не существует такого метода. \n");
     }
