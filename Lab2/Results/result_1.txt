@@ -1,0 +1,31 @@
+Key: 2Pac, value: 10
+Key: Biggie, value: 10
+Key: Diddy, value: 0
+Key: Drake, value: 8
+Key: Eminem, value: 10
+Key: JAY-Z, value: 10
+Key: Kanye_West, value: 11
+Key: Kendrick_Lamar, value: 10
+Key: Future, value: 10
+Key: Lil_Pump, value: 7
+Key: Lil_Wayne, value: 10
+Key: Nas, value: 9
+Key: Raekwon, value: 8
+Key: Snoop_Dogg, value: 10
+
+========== SORTED ==========
+
+Key: 2Pac, value: 10
+Key: Biggie, value: 10
+Key: Diddy, value: 0
+Key: Drake, value: 8
+Key: Eminem, value: 10
+Key: Future, value: 10
+Key: JAY-Z, value: 10
+Key: Kanye_West, value: 11
+Key: Kendrick_Lamar, value: 10
+Key: Lil_Pump, value: 7
+Key: Lil_Wayne, value: 10
+Key: Nas, value: 9
+Key: Raekwon, value: 8
+Key: Snoop_Dogg, value: 10
