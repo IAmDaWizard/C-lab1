@@ -72,17 +72,10 @@ void delete(int value, node **root, int val) {
             continue;
         }
         if ((*link)->left == NULL && (*link)->right == NULL) {
-            if (ptr == 0) {
-                node *v = *link;
-                *link = NULL;
-                free(v);
-                break;
-            } else {
-                node *v = *link;
-                *link = NULL;
-                free(v);
-                break;
-            }
+            node *v = *link;
+            *link = NULL;
+            free(v);
+            break;
         } else if ((*link)->left != NULL && (*link)->right == NULL) {
             node *v = *link;
             *link = ((*link)->left);
@@ -102,7 +95,6 @@ void delete(int value, node **root, int val) {
         }
         break;
     }
-    return;
 }
 
 void traversal_lkp(node *root) {
