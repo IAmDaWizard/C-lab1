@@ -30,29 +30,31 @@ void sort(Chart *chart, int count) {
 
 
 int main() {
-    int c = 0, count;
+    int c = 0, count, ch;
     fprintf(stderr, "Введите количество пар ключ-значение: ");
     scanf("%d", &count);
+    while ((ch = getchar()) != '\n' && ch != EOF);
     Chart *chart = malloc(count * sizeof(Chart));
     if (!chart) {
         printf("Error allocating memory\n");
         return 0;
     }
     while (c < count) {
-        chart[c].keys = malloc(101 * sizeof(char));
-        c++;
-        if (!chart[c - 1].keys) {
+        size_t size = 0;
+        chart[c].keys = NULL;
+        fprintf(stderr, "Введите ключ: ");
+        ssize_t len = getline(&chart[c].keys, &size, stdin);
+        if (len==-1) {
             printf("Error allocating memory char\n");
+            int i=0; for (;i<c;i++){free(chart[i].keys);}
             free(chart);
             return 0;
         }
-    }
-    int i = 0;
-    for (; i < count; i++) {
-        fprintf(stderr, "Введите ключ: ");
-        scanf("%100s", chart[i].keys);
+        if (len>0 && chart[c].keys[len-1] == '\n') chart[c].keys[len-1] = '\0';
         fprintf(stderr, "Введите значение: ");
-        scanf("%d", &chart[i].value);
+        scanf("%d", &chart[c].value);
+        while ((ch = getchar()) != '\n' && ch != EOF);
+        c++;
     }
     int number = 0;
     while (number < count) {
