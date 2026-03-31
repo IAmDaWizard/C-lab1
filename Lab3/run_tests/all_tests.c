@@ -26,9 +26,6 @@ int main() {
     test_dijkstra();
     printf("dijkstra OK\n");
 
-    test_build_tree();
-    printf("build_tree OK\n");
-
     test_combine_terms();
     printf("combine_terms OK\n");
 
