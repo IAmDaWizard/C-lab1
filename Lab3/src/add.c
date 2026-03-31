@@ -60,7 +60,7 @@ void add_term(int coeff, char *key, int **coeffs, char ***keys, int *count) {
     (*count)++;
 }
 
-// разобрать один член
+// разбираем один член бро
 void split_term(node *root, int sign, int **coeffs, char ***keys, int *count) {
     // число
     if (!root->left && !root->right && is_number_token(root->value)) {
@@ -69,7 +69,7 @@ void split_term(node *root, int sign, int **coeffs, char ***keys, int *count) {
     }
 
     // переменная
-    if (!root->left && !root->right && isalpha((unsigned char) root->value[0])) {
+    if (!root->left && !root->right && isalpha(root->value[0])) {
         add_term(sign, strdup(root->value), coeffs, keys, count);
         return;
     }
@@ -95,7 +95,7 @@ void split_term(node *root, int sign, int **coeffs, char ***keys, int *count) {
     add_term(sign, key, coeffs, keys, count);
 }
 
-/* собрать все слагаемые */
+// собираем слагаемые бро
 void collect_terms(node *root, int sign, int **coeffs, char ***keys, int *count) {
     if (!root) return;
 
@@ -110,7 +110,7 @@ void collect_terms(node *root, int sign, int **coeffs, char ***keys, int *count)
     }
 }
 
-// объединить одинаковые
+// объединяем одинаковые бро
 void combine_terms(int *coeffs, char **keys, int *count) {
     for (int i = 0; i < *count; i++) {
         if (coeffs[i] == 0) continue;
@@ -169,8 +169,6 @@ void print_result(int *coeffs, char **keys, int count) {
 
         first = 0;
     }
-
-    printf("\n");
 }
 
 void simplify_and_print(node *root) {
