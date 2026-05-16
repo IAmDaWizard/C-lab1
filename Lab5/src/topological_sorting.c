@@ -85,7 +85,6 @@ int topological_sort(matrix *matr) {
     free(used);
     fclose(file);
 
-    printf("Topological sort result was saved to topological_sort_result.txt\n");
 
     return result;
 }
